@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-sm-1 col-md-2"></div>
+    <div class="col-sm-10 col-md-8">
+
+        <div class="box box-primary" style="min-height: 0">
+            <div class="box-header with-border">
+                <h3 class="box-title">Enter Username to get Repository</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" name="myForm" ng-submit="myForm.$valid && getRepos(username)">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" ng-model="username" required>
+                        <span>(Ex:gaja33)</span>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <input type="submit" class="btn btn-primary" value="Get Repos" ng-disabled="myForm.$invalid" />
+                </div>
+            </form>
+        </div>
+        <br/>
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">List of Repository</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" style="padding-top: 0;padding-bottom: 0;">
+                <ul class="products-list product-list-in-box">
+                    <li class="item" style="padding: 5px 0;" ng-repeat="repo in repos">
+                        <div class="product-img">
+                            <img src="images/repository-icon.png" alt="Product Image" style="width:30px;height: 30px;">
+                        </div>
+                        <div class="product-info" style="margin-left: 40px;">
+                            <a href="javascript:void(0)" class="product-title" ng-click="getCommits(repo.owner.login,repo.name)">
+                                {{repo.name}}
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+                <!--<a href="javascript:void(0)" class="uppercase">View All Products</a>-->
+            </div>
+            <!-- /.box-footer -->
+        </div>
+        <br/>
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Graph</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" style="padding-top: 0;padding-bottom: 0;">
+                <!--<svg class="chart1"></svg>-->
+                <div id="chart"></div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+                <!--<a href="javascript:void(0)" class="uppercase">View All Products</a>-->
+            </div>
+            <!-- /.box-footer -->
+        </div>
+        
+        
+    </div>
+    <div class="col-sm-1 col-md-2"></div>
+
+</div>
